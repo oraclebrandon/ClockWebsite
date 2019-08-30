@@ -584,3 +584,4 @@ function makeMaze() {
     document.getElementById("mazeContainer").style.opacity = "100";
   }
 }
+
