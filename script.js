@@ -227,7 +227,7 @@ function DrawMaze(Maze, ctx, cellsize, endSprite = null) {
     var x = xCord * cellSize;
     var y = yCord * cellSize;
 
-    if (cell.n == false) {
+    if (cell.n === false) {
       ctx.beginPath();
       ctx.moveTo(x, y);
       ctx.lineTo(x + cellSize, y);
@@ -267,7 +267,7 @@ function DrawMaze(Maze, ctx, cellsize, endSprite = null) {
     var fraction = cellSize / gridSize - 2;
     var colorSwap = true;
     for (let y = 0; y < gridSize; y++) {
-      if (gridSize % 2 == 0) {
+      if (gridSize % 2 === 0) {
         colorSwap = !colorSwap;
       }
       for (let x = 0; x < gridSize; x++) {
@@ -311,7 +311,7 @@ function DrawMaze(Maze, ctx, cellsize, endSprite = null) {
     ctx.clearRect(0, 0, canvasSize, canvasSize);
   }
 
-  if (endSprite != null) {
+  if (endSprite !== null) {
     drawEndMethod = drawEndSprite;
   } else {
     drawEndMethod = drawEndFlag;
@@ -326,7 +326,7 @@ function Player(maze, c, _cellsize, onComplete, sprite = null) {
   var drawSprite;
   var moves = 0;
   drawSprite = drawSpriteCircle;
-  if (sprite != null) {
+  if (sprite !== null) {
     drawSprite = drawSpriteImg;
   }
   var player = this;
@@ -397,7 +397,7 @@ function Player(maze, c, _cellsize, onComplete, sprite = null) {
     switch (e.keyCode) {
       case 65:
       case 37: // west
-        if (cell.w == true) {
+        if (cell.w === true) {
           removeSprite(cellCoords);
           cellCoords = {
             x: cellCoords.x - 1,
@@ -408,7 +408,7 @@ function Player(maze, c, _cellsize, onComplete, sprite = null) {
         break;
       case 87:
       case 38: // north
-        if (cell.n == true) {
+        if (cell.n === true) {
           removeSprite(cellCoords);
           cellCoords = {
             x: cellCoords.x,
@@ -419,7 +419,7 @@ function Player(maze, c, _cellsize, onComplete, sprite = null) {
         break;
       case 68:
       case 39: // east
-        if (cell.e == true) {
+        if (cell.e === true) {
           removeSprite(cellCoords);
           cellCoords = {
             x: cellCoords.x + 1,
@@ -430,7 +430,7 @@ function Player(maze, c, _cellsize, onComplete, sprite = null) {
         break;
       case 83:
       case 40: // south
-        if (cell.s == true) {
+        if (cell.s === true) {
           removeSprite(cellCoords);
           cellCoords = {
             x: cellCoords.x,
@@ -562,7 +562,7 @@ window.onresize = function() {
     ctx.canvas.height = viewWidth - viewWidth / 100;
   }
   cellSize = mazeCanvas.width / difficulty;
-  if (player != null) {
+  if (player !== null) {
     draw.redrawMaze(cellSize);
     player.redrawPlayer(cellSize);
   }
@@ -570,7 +570,7 @@ window.onresize = function() {
 
 function makeMaze() {
   //document.getElementById("mazeCanvas").classList.add("border");
-  if (player != undefined) {
+  if (player !== undefined) {
     player.unbindKeyDown();
     player = null;
   }
